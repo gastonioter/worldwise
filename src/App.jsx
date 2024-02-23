@@ -7,7 +7,6 @@ import NotFound from "./pages/NotFound";
 export default function App() {
   return (
     <div>
-      <h1>Worldwise App!</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

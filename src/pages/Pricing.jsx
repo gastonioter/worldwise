@@ -1,3 +1,10 @@
+import Navigation from "../components/Navigation";
+
 export default function Pricing() {
-  return <div>Pricing</div>;
+  return (
+    <div>
+      <Navigation />
+      <h1>Pricing</h1>
+    </div>
+  );
 }
