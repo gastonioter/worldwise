@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 import Navigation from "../components/Navigation";
 import styles from "./Login.module.css";
 import { useState } from "react";
@@ -5,7 +7,10 @@ export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
-
+  const navigate = useNavigate();
+  function login() {
+    navigate("/app");
+  }
   return (
     <main className={styles.login}>
       <Navigation />
@@ -31,7 +36,9 @@ export default function Login() {
         </div>
 
         <div>
-          <button>Login</button>
+          <Button onClick={login} type="primary">
+            Login
+          </Button>
         </div>
       </form>
     </main>
