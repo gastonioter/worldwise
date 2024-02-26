@@ -32,7 +32,6 @@
   gap: 1rem;
 }
 
-
 :global(.leaflet-popup .leaflet-popup-content span:first-child) {
   font-size: 2.5rem;
   line-height: 1;
@@ -44,4 +43,23 @@
 
 :global(.leaflet-popup-content-wrapper) {
   border-left: 5px solid var(--color-brand--2);
+}
+
+:global(.btnMap) {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgb(67, 155, 67);
+}
+
+:global(.btnMap:active) {
+  background-color: rgb(37, 87, 37);
+  
+}
+
+:global(.btnLoading){
+  cursor: wait;
 }
