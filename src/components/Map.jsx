@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
@@ -14,62 +15,62 @@ import {
 } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CityContext";
+import { useGeolocation } from "../hooks/useGeolocation";
 const GOOGLE_MAPS_API_KEY = "AIzaSyDNRMow6Cv6ifnFdq8SwXy-HQ2yF4Rkauk";
 
 function MyComponent() {
   const [searchParams, setSearchParams] = useSearchParams();
   const map = useMap();
 
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
+  const lat = searchParams.get("lat");
+  const lng = searchParams.get("lng");
 
   useEffect(
     function () {
       if (!map) return;
+      if (!lat || !lng) return;
+
+      map.panTo({ lat: parseFloat(lat), lng: parseFloat(lng) });
+      map.setZoom(8);
     },
 
-    [map]
+    [map, lat, lng]
   );
 
   return <></>;
 }
 
 export default function Maps() {
-  const [userCoords, setUserCoords] = useState({ lat: 0, lng: 0 });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { getPosition, isLoading: isLoadingGeo, position } = useGeolocation();
+
   const navigate = useNavigate();
-  const { cities, isLoading } = useCities();
 
-  useEffect(function onLoad() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const { latitude: lat, longitude: lng } = position.coords;
+  const { cities } = useCities();
 
-      setUserCoords({
-        lat,
-        lng,
-      });
-    });
+  useEffect(function () {
+    getPosition();
   }, []);
 
-  if ((userCoords.lat === 0 && userCoords.lng === 0) || isLoading)
+  if (isLoadingGeo)
     return (
       <div className={styles.mapContainer}>
         <Spinner />
       </div>
     );
 
-  console.log("map is on the screen");
+  function handleOnClick(e) {
+    const { lat, lng } = e.detail.latLng;
+    navigate(`form?lat=${lat}&lng=${lng}`);
+  }
 
   return (
-    <div className={styles.mapContainer} onClick={() => navigate("form")}>
-      <APIProvider
-        apiKey={GOOGLE_MAPS_API_KEY}
-        className={styles.mapContainer}
-        onClick={() => navigate("form")}
-      >
+    <div className={styles.mapContainer}>
+      <APIProvider apiKey={GOOGLE_MAPS_API_KEY} className={styles.mapContainer}>
         <Map
           minZoom={3}
           defaultZoom={2}
-          defaultCenter={userCoords}
+          defaultCenter={position}
           styles={[
             {
               featureType: "poi",
@@ -82,6 +83,7 @@ export default function Maps() {
               stylers: [{ visibility: "off" }],
             },
           ]}
+          onClick={handleOnClick}
         >
           {cities.map((city) => (
             <MyMarker key={city.id} city={city} />
@@ -97,10 +99,14 @@ export default function Maps() {
 function MyMarker({ city }) {
   const [markerRef, marker] = useMarkerRef();
 
+  function handleMarkerClick(e) {
+    // show info window
+  }
   return (
     <>
       <Marker
         ref={markerRef}
+        onClick={handleMarkerClick}
         position={{ lat: city.position.lat, lng: city.position.lng }}
       />
 
