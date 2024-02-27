@@ -12,7 +12,6 @@ const FAKE_USER = {
 const AuthContext = createContext();
 
 function reducer(state, action) {
-  console.log("reducererrr");
   const { type, payload } = action;
   switch (type) {
     case "login":

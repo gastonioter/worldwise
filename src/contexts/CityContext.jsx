@@ -21,6 +21,7 @@ const initialState = {
 
 function reducer(state, action) {
   const { type, payload } = action;
+
   switch (type) {
     case "loading":
       return {
@@ -61,10 +62,8 @@ function reducer(state, action) {
       };
 
     default:
-      break;
+      throw new Error("not valid action");
   }
-
-  return initialState;
 }
 // eslint-disable-next-line react-refresh/only-export-components
 export function useCities() {
@@ -89,7 +88,7 @@ export function CityProvider({ children }) {
         const res = await fetch(`${BASE_URL}/cities`);
         if (!res.ok) throw new Error("Error fetching cities");
         const data = await res.json();
-        
+
         dispatch({ type: "cities/loaded", payload: data });
       } catch (e) {
         console.error(e);
@@ -100,19 +99,13 @@ export function CityProvider({ children }) {
     fetchCities();
   }, []);
 
-  useEffect(
-    function fetchCurrentCity() {
-      fetchCity();
-    },
-    [id]
-  );
-
   async function fetchCity(id) {
-    dispatch({ type: "load" });
     try {
+      //dispatch({ type: "loading" });
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       if (!res.ok) throw new Error();
       const data = await res.json();
+
       dispatch({ type: "cities/current", payload: data });
     } catch (e) {
       console.log(e);
@@ -121,7 +114,7 @@ export function CityProvider({ children }) {
   }
 
   async function createCity(newCity) {
-    dispatch({ type: "load" });
+    dispatch({ type: "loading" });
     try {
       // KEEP IN SYNC REMOTE STATE WITH LOCAL STATE
       const res = await fetch(`${BASE_URL}/cities`, {
@@ -142,7 +135,7 @@ export function CityProvider({ children }) {
   }
 
   async function deleteCity(id) {
-    dispatch({ type: "load" });
+    dispatch({ type: "loading" });
     try {
       // KEEP IN SYNC REMOTE STATE WITH LOCAL STATE
       await fetch(`${BASE_URL}/cities/${id}`, {
