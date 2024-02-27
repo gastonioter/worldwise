@@ -86,7 +86,6 @@ function Form() {
 
     await createCity(newCity);
     navigate("/app/cities");
-    console.log(newCity);
   }
 
   if (isGeolocating) return <Spinner />;

@@ -37,25 +37,69 @@
       "id": "98443197"
     },
     {
-      "id": "a8eb",
-      "cityName": "Congo (the Democratic Republic of the)",
-      "date": "2024-02-27T05:36:32.789Z",
+      "id": "876d",
+      "cityName": "Niger (the)",
+      "date": "2024-02-27T06:48:26.235Z",
       "notes": "",
-      "emoji": "🇨🇩",
+      "emoji": "🇳🇪",
       "position": {
-        "lat": -5.87068371924049,
-        "lng": 24.866670465535563
+        "lat": 19.569514435855254,
+        "lng": 14.326171875
       }
     },
     {
-      "id": "8c17",
-      "cityName": "Argentina",
-      "date": "2024-02-27T06:29:51.904Z",
+      "id": "bbf1",
+      "cityName": "Morocco",
+      "date": "2024-02-27T06:49:29.862Z",
       "notes": "",
-      "emoji": "🇦🇷",
+      "emoji": "🇲🇦",
       "position": {
-        "lat": -40.22841317652194,
-        "lng": -68.02734375
+        "lat": 33.815112816855674,
+        "lng": -2.724609375
+      }
+    },
+    {
+      "id": "5423",
+      "cityName": "Algeria",
+      "date": "2024-02-27T06:50:54.021Z",
+      "notes": "",
+      "emoji": "🇩🇿",
+      "position": {
+        "lat": 27.390686722884677,
+        "lng": -2.109375
+      }
+    },
+    {
+      "id": "9f08",
+      "cityName": "Canada",
+      "date": "2024-02-27T06:53:03.673Z",
+      "notes": "",
+      "emoji": "🇨🇦",
+      "position": {
+        "lat": 48.7050232567753,
+        "lng": -65.390625
+      }
+    },
+    {
+      "id": "7552",
+      "cityName": "Iran (Islamic Republic of)",
+      "date": "2024-02-27T06:54:29.796Z",
+      "notes": "",
+      "emoji": "🇮🇷",
+      "position": {
+        "lat": 32.11923689045055,
+        "lng": 49.21875
+      }
+    },
+    {
+      "id": "32b9",
+      "cityName": "Moldova (the Republic of)",
+      "date": "2024-02-27T06:55:14.190Z",
+      "notes": "",
+      "emoji": "🇲🇩",
+      "position": {
+        "lat": 48.06295131749806,
+        "lng": 27.509765625
       }
     }
   ]

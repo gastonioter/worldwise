@@ -12,7 +12,7 @@ const BASE_URL = "http://localhost:8000";
 
 const CityContext = createContext();
 
-const initalState = {
+const initialState = {
   cities: [],
   isLoading: false,
   currentCity: {},
@@ -21,14 +21,13 @@ const initalState = {
 
 function reducer(state, action) {
   const { type, payload } = action;
-
   switch (type) {
     case "loading":
       return {
         ...state,
         isLoading: true,
       };
-    case "cities/load":
+    case "cities/loaded":
       return {
         ...state,
         isLoading: false,
@@ -38,7 +37,8 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        cities: [...state.cities, payload],
+        cities: payload,
+        currentCity: payload.at(-1),
       };
     case "cities/deleted":
       return {
@@ -52,6 +52,7 @@ function reducer(state, action) {
         isLoading: false,
         currentCity: payload,
       };
+
     case "error":
       return {
         ...state,
@@ -60,8 +61,10 @@ function reducer(state, action) {
       };
 
     default:
-      return initalState;
+      break;
   }
+
+  return initialState;
 }
 // eslint-disable-next-line react-refresh/only-export-components
 export function useCities() {
@@ -75,7 +78,7 @@ export function CityProvider({ children }) {
   const { id } = useParams();
   const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
     reducer,
-    initalState
+    initialState
   );
 
   useEffect(function fetchCities() {
@@ -86,6 +89,7 @@ export function CityProvider({ children }) {
         const res = await fetch(`${BASE_URL}/cities`);
         if (!res.ok) throw new Error("Error fetching cities");
         const data = await res.json();
+        console.log(data);
         dispatch({ type: "cities/loaded", payload: data });
       } catch (e) {
         console.error(e);
@@ -129,7 +133,8 @@ export function CityProvider({ children }) {
       });
       if (!res.ok) throw new Error();
       const city = await res.json();
-      dispatch({ type: "cities/created", payload: city });
+
+      dispatch({ type: "cities/created", payload: [...cities, city] });
     } catch (e) {
       console.log(e);
       dispatch({ type: "error", payload: e.message });
