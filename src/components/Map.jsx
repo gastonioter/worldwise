@@ -18,12 +18,13 @@ import {
 import { useCities } from "../contexts/CityContext";
 import { useEffect, useState } from "react";
 import { useGeolocation } from "../hooks/useGeolocation";
-const API_KEY = "AIzaSyDNRMow6Cv6ifnFdq8SwXy-HQ2yF4Rkauk";
+import { useSearchURLParams } from "../hooks/useSearchURLParams";
 
+const API_KEY = "AIzaSyDNRMow6Cv6ifnFdq8SwXy-HQ2yF4Rkauk";
+let geocoder = null;
 export default function Maps() {
   const { cities } = useCities();
   const navigate = useNavigate();
-  const geocodeLib = useMapsLibrary("geocoding");
 
   const {
     getPosition,
@@ -35,8 +36,8 @@ export default function Maps() {
   });
 
   function onMapClick(e) {
+    if (!e.detail) return;
     const { lat, lng } = e.detail.latLng;
-    console.log(geocodeLib);
     navigate(`form?lat=${lat}&lng=${lng}`);
   }
 
@@ -46,6 +47,7 @@ export default function Maps() {
         <Map
           defaultCenter={position}
           defaultZoom={4}
+          maxZoom={5}
           disableDefaultUI
           onClick={onMapClick}
         >
@@ -75,15 +77,14 @@ export default function Maps() {
 function MapController({ position }) {
   const map = useMap();
   const [mapPosition, setMapPosition] = useState({ lat: -50, lng: -0 });
-  const [searchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const geocodeLib = useMapsLibrary("geocoding");
+  const [lat, lng] = useSearchURLParams();
 
   // Synchronize with URL params
   useEffect(
     function updateMapCenter() {
       if (!lat || !lng) return;
-      setMapPosition({ lat: +lat, lng: +lng });
+      setMapPosition({ lat: Number(lat), lng: Number(lng) });
     },
     [lat, lng]
   );
@@ -98,15 +99,16 @@ function MapController({ position }) {
 
   useEffect(
     function () {
-      if (!map) return;
+      if (!map || !geocodeLib) return;
 
       map.panTo(mapPosition);
     },
-    [map, mapPosition]
+    [map, geocodeLib, mapPosition]
   );
 
   return <></>;
 }
+
 function MarkerWithInfo({ city }) {
   const [markerRef, marker] = useMarkerRef();
   const [isMarkerOpen, setIsMarkerOpen] = useState(true);
