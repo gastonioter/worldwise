@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
-    },
-    {
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -100,6 +88,99 @@
       "position": {
         "lat": 48.06295131749806,
         "lng": 27.509765625
+      }
+    },
+    {
+      "id": "ebd8",
+      "cityName": "Argentina",
+      "date": "2024-02-27T06:56:11.528Z",
+      "notes": "",
+      "emoji": "🇦🇷",
+      "position": {
+        "lat": -38.625974424624815,
+        "lng": -66.97265625
+      }
+    },
+    {
+      "id": "c490",
+      "cityName": "Central African Republic (the)",
+      "date": "2024-02-27T06:56:45.231Z",
+      "notes": "",
+      "emoji": "🇨🇫",
+      "position": {
+        "lat": 7.792338835554507,
+        "lng": 21.6650390625
+      }
+    },
+    {
+      "id": "5905",
+      "cityName": "Antarctica",
+      "date": "2024-02-27T06:56:52.721Z",
+      "notes": "",
+      "emoji": "🇦🇶",
+      "position": {
+        "lat": -71.16842368207357,
+        "lng": 113.6373539069782
+      }
+    },
+    {
+      "id": "764c",
+      "cityName": "Algeria",
+      "date": "2024-02-27T18:47:50.935Z",
+      "notes": "",
+      "emoji": "🇩🇿",
+      "country": "Algeria",
+      "position": {
+        "lat": 24.401142764863078,
+        "lng": 11.019760863817595
+      }
+    },
+    {
+      "id": "fbc0",
+      "cityName": "Congo (the Democratic Republic of the)",
+      "date": "2024-02-27T18:47:53.134Z",
+      "notes": "",
+      "emoji": "🇨🇩",
+      "country": "Congo (the Democratic Republic of the)",
+      "position": {
+        "lat": 3.837954859080571,
+        "lng": 27.631088988817595
+      }
+    },
+    {
+      "id": "e907",
+      "cityName": "Chad",
+      "date": "2024-02-27T18:48:01.263Z",
+      "notes": "",
+      "emoji": "🇹🇩",
+      "country": "Chad",
+      "position": {
+        "lat": 16.71828773658158,
+        "lng": 18.842026488817595
+      }
+    },
+    {
+      "id": "0089",
+      "cityName": "Congo (the Democratic Republic of the)",
+      "date": "2024-02-27T18:48:03.239Z",
+      "notes": "",
+      "emoji": "🇨🇩",
+      "country": "Congo (the Democratic Republic of the)",
+      "position": {
+        "lat": 0.637200733181855,
+        "lng": 28.773667113817595
+      }
+    },
+    {
+      "id": "f16a",
+      "cityName": "Mali",
+      "date": "2024-02-27T18:48:04.646Z",
+      "notes": "",
+      "emoji": "🇲🇱",
+      "country": "Mali",
+      "position": {
+        "lat": 18.856395679541418,
+        "lng": -3.130629761182404
       }
     }
   ]

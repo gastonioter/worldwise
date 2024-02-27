@@ -89,7 +89,7 @@ export function CityProvider({ children }) {
         const res = await fetch(`${BASE_URL}/cities`);
         if (!res.ok) throw new Error("Error fetching cities");
         const data = await res.json();
-        console.log(data);
+        
         dispatch({ type: "cities/loaded", payload: data });
       } catch (e) {
         console.error(e);

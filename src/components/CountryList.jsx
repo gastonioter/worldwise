@@ -24,6 +24,8 @@ export default function CountryList() {
       ];
   }, []);
 
+  console.log(countries);
+
   return (
     <ul className={styles.countryList}>
       {countries.map((country, i) => (
