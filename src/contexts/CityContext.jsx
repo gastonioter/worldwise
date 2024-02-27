@@ -114,8 +114,8 @@ export function CityProvider({ children }) {
   }
 
   async function createCity(newCity) {
-    dispatch({ type: "loading" });
     try {
+      dispatch({ type: "loading" });
       // KEEP IN SYNC REMOTE STATE WITH LOCAL STATE
       const res = await fetch(`${BASE_URL}/cities`, {
         method: "POST",
