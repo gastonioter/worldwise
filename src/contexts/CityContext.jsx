@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useReducer,
-  useState,
 } from "react";
 import { useParams } from "react-router-dom";
 const BASE_URL = "http://localhost:8000";
@@ -74,7 +74,6 @@ export function useCities() {
 }
 
 export function CityProvider({ children }) {
-  const { id } = useParams();
   const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
     reducer,
     initialState
@@ -99,9 +98,9 @@ export function CityProvider({ children }) {
     fetchCities();
   }, []);
 
-  async function fetchCity(id) {
+  const fetchCity = useCallback(async function fetchCity(id) {
     try {
-      //dispatch({ type: "loading" });
+      dispatch({ type: "loading" });
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       if (!res.ok) throw new Error();
       const data = await res.json();
@@ -111,7 +110,7 @@ export function CityProvider({ children }) {
       console.log(e);
       dispatch({ type: "error", payload: e.message });
     }
-  }
+  }, []);
 
   async function createCity(newCity) {
     try {

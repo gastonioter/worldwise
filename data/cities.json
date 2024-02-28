@@ -24,62 +24,6 @@
       }
     },
     {
-      "id": "7552",
-      "cityName": "Iran (Islamic Republic of)",
-      "date": "2024-02-27T06:54:29.796Z",
-      "notes": "",
-      "emoji": "🇮🇷",
-      "position": {
-        "lat": 32.11923689045055,
-        "lng": 49.21875
-      }
-    },
-    {
-      "id": "32b9",
-      "cityName": "Moldova (the Republic of)",
-      "date": "2024-02-27T06:55:14.190Z",
-      "notes": "",
-      "emoji": "🇲🇩",
-      "position": {
-        "lat": 48.06295131749806,
-        "lng": 27.509765625
-      }
-    },
-    {
-      "id": "ebd8",
-      "cityName": "Argentina",
-      "date": "2024-02-27T06:56:11.528Z",
-      "notes": "",
-      "emoji": "🇦🇷",
-      "position": {
-        "lat": -38.625974424624815,
-        "lng": -66.97265625
-      }
-    },
-    {
-      "id": "c490",
-      "cityName": "Central African Republic (the)",
-      "date": "2024-02-27T06:56:45.231Z",
-      "notes": "",
-      "emoji": "🇨🇫",
-      "position": {
-        "lat": 7.792338835554507,
-        "lng": 21.6650390625
-      }
-    },
-    {
-      "id": "fbc0",
-      "cityName": "Congo (the Democratic Republic of the)",
-      "date": "2024-02-27T18:47:53.134Z",
-      "notes": "",
-      "emoji": "🇨🇩",
-      "country": "Congo (the Democratic Republic of the)",
-      "position": {
-        "lat": 3.837954859080571,
-        "lng": 27.631088988817595
-      }
-    },
-    {
       "id": "e907",
       "cityName": "Chad",
       "date": "2024-02-27T18:48:01.263Z",
@@ -89,54 +33,6 @@
       "position": {
         "lat": 16.71828773658158,
         "lng": 18.842026488817595
-      }
-    },
-    {
-      "id": "0089",
-      "cityName": "Congo (the Democratic Republic of the)",
-      "date": "2024-02-27T18:48:03.239Z",
-      "notes": "",
-      "emoji": "🇨🇩",
-      "country": "Congo (the Democratic Republic of the)",
-      "position": {
-        "lat": 0.637200733181855,
-        "lng": 28.773667113817595
-      }
-    },
-    {
-      "id": "f16a",
-      "cityName": "Mali",
-      "date": "2024-02-27T18:48:04.646Z",
-      "notes": "",
-      "emoji": "🇲🇱",
-      "country": "Mali",
-      "position": {
-        "lat": 18.856395679541418,
-        "lng": -3.130629761182404
-      }
-    },
-    {
-      "id": "6000",
-      "cityName": "Saudi Arabia",
-      "date": "2024-02-27T18:50:55.503Z",
-      "notes": "",
-      "emoji": "🇸🇦",
-      "country": "Saudi Arabia",
-      "position": {
-        "lat": 22.644295304279087,
-        "lng": 47.406479613817595
-      }
-    },
-    {
-      "id": "f27c",
-      "cityName": "Argentina",
-      "date": "2024-02-27T19:16:13.874Z",
-      "notes": "",
-      "emoji": "🇦🇷",
-      "country": "Argentina",
-      "position": {
-        "lat": -43.571322854202954,
-        "lng": -70.224609375
       }
     }
   ]
