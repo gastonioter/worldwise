@@ -7,7 +7,6 @@ import {
   useEffect,
   useReducer,
 } from "react";
-import { useParams } from "react-router-dom";
 const BASE_URL = "http://localhost:8000";
 
 const CityContext = createContext();
