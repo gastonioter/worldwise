@@ -2,8 +2,16 @@
 
 App to keep track of your adventures around the world
 
-Technologies used:
+## Techologies used
 - React 
 - React Router
-- Redux Toolkit
-- Google Maps
+- State managment - Context API + Reducer
+- Google Maps API
+- Vite
+
+## Run in development mode
+Run the app in your localhost:
+
+```
+npm run start
+```
