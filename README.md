@@ -13,5 +13,5 @@ App to keep track of your adventures around the world
 Run the app in your localhost:
 
 ```
-npm run start
+npm run dev
 ```
